@@ -1,0 +1,8 @@
+@import './mixins//mixins.scss';
+
+@include scope-block(load-more) {
+  .isdropped {
+    transition: all 0.2s;
+  }
+}
+

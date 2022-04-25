@@ -1,0 +1,8 @@
+$commonName: cqc-;
+
+@mixin scope-block($block) {
+  $nameSpace: $commonName + $block !global;
+  .#{$nameSpace} {
+    @content;
+  }
+}

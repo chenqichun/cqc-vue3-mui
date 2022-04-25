@@ -1,0 +1,39 @@
+@import './mixins//mixins.scss';
+
+@include scope-block(toast) {
+  position: fixed;
+  max-width: 80%;
+  border-radius: 5px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  box-sizing: border-box;
+  text-align: center;
+  z-index: 1000;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  &-top {
+    top: 50px;
+  }
+  &-bottom {
+    bottom: 50px;
+  }
+  &-middle {
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .cqc-icon {
+    color: #fff;
+    font-size: 30px;
+  }
+  
+}
+.cqc-toast-enter-from, .cqc-toast-leave-to {
+  opacity: 0;
+}
+.cqc-toast-enter-active, .cqc-toast-leave-active {
+  transition: all 0.3s linear;
+}
+.cqc-toast-leave-from,  .cqc-toast-enter-to{
+  opacity: 1;
+}
