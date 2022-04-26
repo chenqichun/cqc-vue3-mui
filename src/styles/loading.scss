@@ -1,4 +1,4 @@
-@import "./mixins//mixins.scss";
+@import "./mixins/mixins.scss";
 
 @include scope-block(loading) {
   &-wrapper {

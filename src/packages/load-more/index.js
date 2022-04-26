@@ -1,5 +1,6 @@
 import LoadMore from './load-more.vue'
+import '../../styles/load-more.scss'
 
-LoadMore.install = Vue => Vue.component(LoadMore.name, LoadMore)
+LoadMore.install = app => app.component(LoadMore.name, LoadMore)
 
 export default LoadMore

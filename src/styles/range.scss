@@ -1,0 +1,6 @@
+@import "./mixins/mixins.scss";
+
+@include scope-block(range) {
+  position: relative;
+  width: 100%;
+}

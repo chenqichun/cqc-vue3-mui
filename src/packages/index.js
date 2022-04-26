@@ -1,20 +1,28 @@
-import Toast from './base'
 import './base'
+import Toast from './base'
+import Loading from './loading'
 import LoadMore from './load-more'
+import infiniteScroll from './infinite-scroll'
+import Range from './range'
 
 const plugins = [
-  LoadMore
+  LoadMore,
+  Range
 ]
 
-const install = Vue => {
-  plugins.forEach(plugin => Vue.use(plugin))
+const install = app => {
+  plugins.forEach(plugin => app.use(plugin))
 }
 
 export default install
 
 
 export {
-  LoadMore
+  Toast,
+  Loading,
+  LoadMore,
+  infiniteScroll,
+  Range
 }
 
 
