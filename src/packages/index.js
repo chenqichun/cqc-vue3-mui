@@ -4,10 +4,12 @@ import Loading from './loading'
 import LoadMore from './load-more'
 import infiniteScroll from './infinite-scroll'
 import Range from './range'
+import Switch from './switch'
 
 const plugins = [
   LoadMore,
-  Range
+  Range,
+  Switch
 ]
 
 const install = app => {
@@ -22,7 +24,8 @@ export {
   Loading,
   LoadMore,
   infiniteScroll,
-  Range
+  Range,
+  Switch
 }
 
 
