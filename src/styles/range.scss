@@ -3,4 +3,30 @@
 @include scope-block(range) {
   position: relative;
   width: 100%;
+  display: flex;
+  &-wrapper {
+    position: relative;
+    flex: 1;
+    height: 100%;
+  }
+  &-way, &-progress {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  &-thumb {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translate3D(0, -50%, 0);
+    border-radius: 100%;
+    cursor: move;
+    will-change: transform;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.4);
+    z-index: 3;
+  }
+  &-text {
+    padding: 6px;
+  }
 }

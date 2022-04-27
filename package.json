@@ -1,13 +1,28 @@
 {
   "name": "cqc-vue3-mui",
-  "version": "0.1.0",
-  "private": true,
+  "version": "1.0.3",
+  "private": false,
+  "main": "./libUI/cqc-vue3-mui.umd.min.js",
+  "author": "chenqichun<1069012191@qq.com>",
+  "license": "ISC",
+  "keywords": [
+    "vue3",
+    "ui",
+    "javascript"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chenqichun/cqc-vue3-mui.git"
+  },
+  "description": "the moblie ui lib of vue3",
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build"
+    "build": "vue-cli-service build --target lib --name cqc-vue3-mui ./src/packages/index.js && vue-cli-service build --all --no-clean",
+    "build:docs": "vue-cli-service build"
   },
   "dependencies": {
     "core-js": "^3.8.3",
+    "highlight.js": "^11.5.1",
     "vue": "^3.2.13"
   },
   "devDependencies": {

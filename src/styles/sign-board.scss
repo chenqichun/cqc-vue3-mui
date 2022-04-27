@@ -1,0 +1,40 @@
+@import './common/variable.scss';
+@import './mixins/mixins.scss';
+
+@include scope-block(sign-board) {
+  position: relative;
+  border-radius: $border-radius;
+  display: inline-block;
+  box-sizing: border-box;
+  padding: 10px;
+  &-control {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 0;
+  }
+  &-canvas {
+    border-radius: $border-radius;
+    border: 1px solid $border-color;
+    box-shadow: 0 2px 6px #dbdbdb;
+  }
+  button {
+    width: 40%;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: $border-radius;
+    border: 1px solid #dbdbdb;
+    outline: none;
+    &.primary {
+      color: #fff;
+      background-color: $primary;
+      border: 1px solid $primary;
+      &:active {
+        background-color: $primary-active;
+      }
+    }
+  }
+}
