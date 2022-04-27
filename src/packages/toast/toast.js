@@ -15,7 +15,9 @@ let getInstance = () => {
 }
 
 let destory = function() {
-  document.body.removeChild(this.wrapper)
+  if (this.wrapper && this.wrapper.parentNode) {
+    this.wrapper.parentNode.removeChild(this.wrapper)
+  }
   this.unmount()
   currentInstance = null;
 }

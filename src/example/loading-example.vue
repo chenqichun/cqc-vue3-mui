@@ -1,28 +1,22 @@
 <template>
   <div>
     <button @click="open">打开loading</button>
-    <br>
-    <button @click="close">手动关闭</button>
   </div>
 </template>
 
 <script>
-import loading from '@/packages/loading/index.js'
+import { Loading } from 'cqc-vue3-mui'
 export default {
   name: 'App',
   setup() {
     const open = () => {
-      loading.open({text: 'loading...'})
+      Loading.open({text: 'loading...'})
       setTimeout(() => {
-        loading.close()
+        Loading.close()
       }, 3000);
     }
-    const close = () => {
-      loading.close()
-    }
     return {
-      open,
-      close
+      open
     }
   }
 }
