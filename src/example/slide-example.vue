@@ -1,6 +1,8 @@
 <template>
-  <div style="margin: 1 0px">
-    <h3>左边</h3>
+  <div style="margin: 1 0px; padding-left: 10px">
+    <goback />
+    <div style="padding-top:70px"></div>
+    <h3>请向右滑动</h3>
     <div class="slide-item">
       <cqc-slide>
         <template v-slot:left>
@@ -13,7 +15,7 @@
     </div>
     
     <br>
-    <h3>右边</h3>
+    <h3>请向左滑动</h3>
     <div class="slide-item">
       <cqc-slide>
         <div class="text">宝宝不开心</div>
@@ -56,11 +58,11 @@ export default {
 
 <style lang="scss">
 .slide-item {
-  width: 300px;
+  width: 90vw;
   height: 50px;
   border: 1px solid #dbdbdb;
   border-radius: 4px;
-  margin-bottom: 10px;
+  margin: 10px auto;
   .text {
     line-height: 50px;
     text-align: center;

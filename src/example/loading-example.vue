@@ -1,5 +1,6 @@
 <template>
   <div>
+    <goback />
     <button @click="open">打开loading</button>
   </div>
 </template>

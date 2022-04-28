@@ -1,8 +1,8 @@
 
-import { nextTick, onMounted } from 'vue'
+import { nextTick, onBeforeUnmount, onMounted } from 'vue'
 
 export default function drawEvents(props, canvasRef, width, height) {
-  let flag = true;
+  let canMove = false;
   let cavClientLeft, cavClientTop, canvas, ctx;
   const { lineWidth, strokeStyle, lineCap, lineDash, doubleLine, miniType, canvasBg } = props
 
@@ -19,7 +19,6 @@ export default function drawEvents(props, canvasRef, width, height) {
     }
   }
   function draw(ctx, x, y) {
-    if (!flag) return false;
     ctx.lineTo(x, y)
     ctx.stroke()
   }
@@ -27,16 +26,15 @@ export default function drawEvents(props, canvasRef, width, height) {
     doubleLine && ctx.save()
     ctx.beginPath()
     ctx.moveTo(x, y)
-    flag = true;
   }
   function drawEnd(ctx) {
+    canMove = false
     if (doubleLine) {
       ctx.globalCompositeOperation = 'destination-out'
       ctx.lineWidth = parseInt(lineWidth / 3)
       ctx.stroke()
       ctx.restore()
     }
-    flag = false;
   }
   function clear() {
     ctx.clearRect(0, 0, width.value, height.value)
@@ -48,32 +46,50 @@ export default function drawEvents(props, canvasRef, width, height) {
     return canvasRef.value.toDataURL(miniType);
   }
 
-  function onmousedown(e) {
+  const touchstart = (e) => {
+    canMove = true;
     cavClientLeft = canvas.getBoundingClientRect().left
     cavClientTop = canvas.getBoundingClientRect().top
     let clientX = e.touches ? e.touches[0].clientX : e.clientX;
     let clientY = e.touches ? e.touches[0].clientY : e.clientY;
     drawStart(ctx, clientX - cavClientLeft, clientY - cavClientTop)
-    canvas.onmousemove = canvas.ontouchmove = e => {
-      if (!flag) return;
-      let clientX = e.touches ? e.touches[0].clientX : e.clientX;
-      let clientY = e.touches ? e.touches[0].clientY : e.clientY;
-      draw(ctx, clientX - cavClientLeft, clientY - cavClientTop)
-    }
-    window.addEventListener('mouseup', () => {
-      drawEnd(ctx)
-    })
-    window.addEventListener('touchend', () => {
-      drawEnd(ctx)
-    })
   }
+
+  const touchmove = e => {
+    if (!canMove) return;
+    let clientX = e.touches ? e.touches[0].clientX : e.clientX;
+    let clientY = e.touches ? e.touches[0].clientY : e.clientY;
+    draw(ctx, clientX - cavClientLeft, clientY - cavClientTop)
+  }
+
+  const touchend = () => {
+    drawEnd(ctx)
+  }
+
+  const eventMap = {
+    touchstart,
+    touchmove,
+    touchend,
+    mousedown: touchstart,
+    mousemove: touchmove,
+    mouseup: touchend,
+  };
 
   function init() {
     canvas = canvasRef.value
     ctx = canvas.getContext('2d')
     setCanvasStyle(ctx)
-    canvas.onmousedown = canvas.ontouchstart = onmousedown
+    Object.entries(eventMap).forEach(([key, event]) => {
+      canvas.addEventListener(key, event);
+    });
+    window.addEventListener("mouseup", touchend);
   }
+  onBeforeUnmount(() => {
+    Object.entries(eventMap).forEach(([key, event]) => {
+      canvas.removeEventListener(key, event);
+    });
+    window.removeEventListener("mouseup", touchend);
+  }) 
 
   onMounted(() => {
     nextTick(() => {

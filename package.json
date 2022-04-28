@@ -1,6 +1,6 @@
 {
   "name": "cqc-vue3-mui",
-  "version": "1.0.3",
+  "version": "1.0.0",
   "private": false,
   "main": "./libUI/cqc-vue3-mui.umd.min.js",
   "author": "chenqichun<1069012191@qq.com>",
@@ -16,7 +16,7 @@
   },
   "description": "the moblie ui lib of vue3",
   "scripts": {
-    "serve": "vue-cli-service serve",
+    "serve": "vue-cli-service serve --port 3668",
     "build": "vue-cli-service build --target lib --name cqc-vue3-mui ./src/packages/index.js && vue-cli-service build --all --no-clean",
     "build:docs": "vue-cli-service build"
   },

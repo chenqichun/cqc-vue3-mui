@@ -35,7 +35,8 @@ export default {
     const radio = 0.5;
     let direcition; // 是上拉还是下拉
     const conditionDistance = 50; // 
-    let startScrollTop = 0
+    let startScrollTop = 0;
+    let canmove = false;
     const state = reactive({
       topDropped: false,
       bottomDropped: false,
@@ -70,7 +71,8 @@ export default {
       state.bottomDropped = false;
     }
     const touchstart = e => {
-      starty = e.touches[0].clientY
+      canmove = true;
+      starty = e.touches ? e.touches[0].clientY : e.clientY
       startScrollTop = getScrollTop(scrollEventTarget)
       if (state.topStatus !== 'loading') {
         state.topStatus = 'pull'
@@ -82,8 +84,10 @@ export default {
       }
     }
     const touchmove = e => {
+      if (!canmove) return;
       if (starty < loadNode.getBoundingClientRect().top || starty > loadNode.getBoundingClientRect().bottom) return;
-      let distance = (e.touches[0].clientY - starty) * radio;
+     let clientY = e.touches ? e.touches[0].clientY : e.clientY
+     let distance = (clientY - starty) * radio;
       direcition = distance > 0 ? 'down' : 'up';
       if (typeof props.topMethod === 'function' && direcition === 'down' && getScrollTop(scrollEventTarget) === 0 && state.topStatus !== 'loading') {
         if (e.cancelable) e.preventDefault();
@@ -95,6 +99,7 @@ export default {
 
     }
     const touchend = e => {
+      canmove = false
       if (direcition === 'down' && props.topMethod && getScrollTop(scrollEventTarget) === 0 && state.translate > 0) {
         state.topDropped = true
         if (state.topStatus === 'drop') {
@@ -117,10 +122,18 @@ export default {
         }
      }
     })
+    const eventMap = {
+      touchstart,
+      touchmove,
+      touchend,
+      mousedown: touchstart,
+      mousemove: touchmove,
+      mouseup: touchend,
+    };
     const bindTouchEvents = () => {
-        loadNode.addEventListener('touchstart', touchstart);
-        loadNode.addEventListener('touchmove', touchmove);
-        loadNode.addEventListener('touchend', touchend);
+         Object.entries(eventMap).forEach(([key, event]) => {
+          loadNode.addEventListener(key, event);
+        });
         scrollEventTarget.addEventListener('scroll', scroll);
     }
     const init = () => {
@@ -134,10 +147,11 @@ export default {
       })
     })
     onBeforeUnmount(() => {
-      loadNode.removeEventListener('touchstart', touchstart);
-      loadNode.removeEventListener('touchmove', touchmove);
-      loadNode.removeEventListener('touchend', touchend);
+      Object.entries(eventMap).forEach(([key, event]) => {
+        loadNode.removeEventListener(key, event);
+      });
       scrollEventTarget.removeEventListener('scroll', scroll);
+      window.removeEventListener('mouseup', touchend)
     })
     return {
       ...toRefs(state),

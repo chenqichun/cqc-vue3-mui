@@ -61,7 +61,7 @@ if (process.env.NODE_ENV === 'production' && args.includes('lib')) {
   }
 } else {
   module.exports = {
-    publicPath: '/lib/vue3-mui-docs/',
+    publicPath: '/lib/v3-moblie/',
     outputDir: 'docs',
     productionSourceMap: false
   }

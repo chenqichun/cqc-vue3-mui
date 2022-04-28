@@ -1,5 +1,7 @@
 <template>
-  <div style="height:400px; overflow-y: auto; border:1px solid #dbdbdb">
+<goback />  
+  <div style="padding-top:80px;"></div>
+  <div style="height:400px; width: 90vw;margin: 0 auto; overflow-y: auto;overflow-x:hidden; border:1px solid #dbdbdb">
     <div 
       v-infinite-scroll="load" 
       infinite-scroll-disabled="disabled"

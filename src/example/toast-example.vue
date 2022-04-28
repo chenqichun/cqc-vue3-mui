@@ -1,5 +1,6 @@
 <template>
   <div>
+    <goback />
     <button @click="click('success', '成功')">成功</button>
     <button @click="click('error', '错误')">错误</button>
     <button @click="click('warn', '警告')">警告</button>
@@ -12,7 +13,9 @@
 
 <script>
 import {Toast} from 'cqc-vue3-mui'
+import goback from './goback.vue';
 export default {
+  components: { goback },
   name: 'App',
   setup() {
     let count = 0;

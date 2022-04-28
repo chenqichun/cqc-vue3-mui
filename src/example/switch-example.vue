@@ -1,5 +1,7 @@
 <template>
   <div style="margin: 50px">
+    <goback />
+    <div style="padding-top:50px"></div>
     <cqc-switch :checked="true" />
     <br>
     <cqc-switch :checked="true" :disabled="true" />

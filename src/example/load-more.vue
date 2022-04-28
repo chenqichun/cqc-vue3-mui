@@ -1,6 +1,7 @@
 <template>
   <div>
-    <div style="height:400px; overflow-y: auto">
+    <goback />
+    <div style="height:100vh; overflow-y: auto">
     <cqc-load-more :topMethod="topMethod" :bottomMethod="bottomMethod" ref="more" :finished="finished">
       <div class="item" v-for="item in count" :key="item">{{ item }}</div>
       <div v-if="finished">五更多数据</div>

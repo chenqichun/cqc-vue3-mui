@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import { computed, nextTick, onMounted, ref } from 'vue'
+import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 export default {
   name: 'CqcRange',
   props: {
@@ -49,13 +49,13 @@ export default {
       default: 0
     }
   },
-  setup(props) {
+  setup(props, { emit }) {
     let range = ref(null)
     let rangeWidth = 1;
     let touchStartx = 0;
     let oleOffsetX = 0;
     let offsetX = ref(0);
-    let canMove = true;
+    let canMove = false;
     const transform = computed(() => {
       return `translate3D(${offsetX.value}px, -50%, 0)`
     })
@@ -81,11 +81,12 @@ export default {
       }
     })
     const percentage = computed(() => {
-      return parseInt(offsetX.value / rangeWidth * 100)
+      return Math.round(offsetX.value / rangeWidth * 100)
     })
     const touchstart = e => {
-      touchStartx = e.touches[0].clientX;
-      let x = e.touches[0].clientX - range.getBoundingClientRect().left;
+      let clientX = e.touches ? e.touches[0].clientX : e.clientX;
+      touchStartx = clientX;
+      let x = clientX - range.getBoundingClientRect().left;
       x = x - props.thumbWidth / 2
       offsetX.value = x > rangeWidth ? rangeWidth : (x < 0 ? 0 : x)
       oleOffsetX = offsetX.value
@@ -93,23 +94,45 @@ export default {
     }
     const touchmove = e => {
       if (!canMove) return
-      let newOffsetX = e.touches[0].clientX - touchStartx + oleOffsetX;
+      let clientX = e.touches ? e.touches[0].clientX : e.clientX; 
+      let newOffsetX = clientX - touchStartx + oleOffsetX;
       offsetX.value = newOffsetX > rangeWidth ? rangeWidth : (newOffsetX < 0 ? 0 : newOffsetX)
+      emit('change', Math.round(offsetX.value / rangeWidth * 100), offsetX.value / rangeWidth * 100)
     }
     const touchend = e => {
       canMove = false
     }
+    const events = {
+      touchstart,
+      touchmove,
+      touchend,
+      mousedown: touchstart,
+      mousemove: touchmove,
+      mouseup: touchend
+    }
     const touchEvents = () => {
-      range.addEventListener('touchstart', touchstart)
-      range.addEventListener('touchmove', touchmove)
+      Object.entries(events).forEach(([key, fn]) => {
+        range.addEventListener(key, fn)
+      })
       window.addEventListener('touchend', touchend)
     }
 
+    watch(() => props.current, val => {
+      offsetX.value = Math.round(val / 100 * rangeWidth)
+    }, {immediate: true})
     const init = () => {
       range = range.value
       rangeWidth = range.clientWidth - props.thumbWidth
+      offsetX.value = Math.round(props.current / 100 * rangeWidth)
       touchEvents()
     }
+
+    onBeforeUnmount(() => {
+      Object.entries(events).forEach(([key, fn]) => {
+        range.removeEventListener(key, fn)
+      })
+      window.removeEventListener('touchend', touchend)
+    })
 
     onMounted(() => {
       nextTick(() => {

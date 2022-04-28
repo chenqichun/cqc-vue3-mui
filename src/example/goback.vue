@@ -1,31 +1,44 @@
 <template>
-  <div class="goback">
-    <span class="btn">返回</span>
-  </div>
+  <div class="goback" @click="handle">返回</div>
 </template>
 
 <script>
 export default {
-
-}
+  beforeRouteEnter(to, from, next) {
+    next((vm) => {
+      vm.fromPath = from.path;
+    });
+  },
+  data() {
+    return {
+      fromPath: "",
+    };
+  },
+  methods: {
+    handle() {
+      if (this.fromPath) {
+        this.$router.go(-1);
+      } else {
+        this.$router.replace("/");
+      }
+    },
+  },
+};
 </script>
 
 <style lang="scss">
 .goback {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+  top: 10px;
+  left: 10px;
   background: #fff;
-  height: 50px;
-  border-bottom: 1px solid #dbdbdb;
-  padding-left: 10px;
+  padding: 10px;
+  display: inline-block;
   display: flex;
   align-items: center;
-  .btn {
-    padding: 2px 4px;
-    border-radius: 4px;
-    border: 1px solid #dbdbdb;
-  }
+  z-index: 99;
+
+  border-radius: 4px;
+  border: 1px solid #dbdbdb;
 }
 </style>

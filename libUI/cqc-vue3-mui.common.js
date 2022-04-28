@@ -1915,7 +1915,10 @@ let getInstance = () => {
 };
 
 let destory = function () {
-  document.body.removeChild(this.wrapper);
+  if (this.wrapper && this.wrapper.parentNode) {
+    this.wrapper.parentNode.removeChild(this.wrapper);
+  }
+
   this.unmount();
   currentInstance = null;
 };
@@ -2047,20 +2050,20 @@ let instance;
 ;// CONCATENATED MODULE: ./src/packages/loading/index.js
 
 
-;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[1]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[3]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./src/packages/load-more/load-more.vue?vue&type=template&id=8259f5c8
+;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[1]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[3]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./src/packages/load-more/load-more.vue?vue&type=template&id=7f021474
 
-const load_morevue_type_template_id_8259f5c8_hoisted_1 = {
+const load_morevue_type_template_id_7f021474_hoisted_1 = {
   class: "cqc-load-more",
   ref: "loadMore"
 };
-const load_morevue_type_template_id_8259f5c8_hoisted_2 = {
+const load_morevue_type_template_id_7f021474_hoisted_2 = {
   key: 0,
   class: "cqc-load-more-top"
 };
-const load_morevue_type_template_id_8259f5c8_hoisted_3 = {
+const load_morevue_type_template_id_7f021474_hoisted_3 = {
   class: "cqc-icon cqc-icon-loading"
 };
-const load_morevue_type_template_id_8259f5c8_hoisted_4 = {
+const load_morevue_type_template_id_7f021474_hoisted_4 = {
   key: 1,
   class: "cqc-load-more-bottom"
 };
@@ -2068,19 +2071,19 @@ const _hoisted_5 = {
   key: 0,
   class: "cqc-icon cqc-icon-loading"
 };
-function load_morevue_type_template_id_8259f5c8_render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,external_commonjs_vue_commonjs2_vue_root_Vue_namespaceObject.openBlock)(), (0,external_commonjs_vue_commonjs2_vue_root_Vue_namespaceObject.createElementBlock)("div", load_morevue_type_template_id_8259f5c8_hoisted_1, [(0,external_commonjs_vue_commonjs2_vue_root_Vue_namespaceObject.createElementVNode)("div", {
+function load_morevue_type_template_id_7f021474_render(_ctx, _cache, $props, $setup, $data, $options) {
+  return (0,external_commonjs_vue_commonjs2_vue_root_Vue_namespaceObject.openBlock)(), (0,external_commonjs_vue_commonjs2_vue_root_Vue_namespaceObject.createElementBlock)("div", load_morevue_type_template_id_7f021474_hoisted_1, [(0,external_commonjs_vue_commonjs2_vue_root_Vue_namespaceObject.createElementVNode)("div", {
     class: (0,external_commonjs_vue_commonjs2_vue_root_Vue_namespaceObject.normalizeClass)(["cqc-load-more-content", {
       'isdropped': _ctx.topDropped || _ctx.bottomDropped
     }]),
     style: (0,external_commonjs_vue_commonjs2_vue_root_Vue_namespaceObject.normalizeStyle)({
       transform: $setup.transform
     })
-  }, [$props.topMethod ? ((0,external_commonjs_vue_commonjs2_vue_root_Vue_namespaceObject.openBlock)(), (0,external_commonjs_vue_commonjs2_vue_root_Vue_namespaceObject.createElementBlock)("div", load_morevue_type_template_id_8259f5c8_hoisted_2, [(0,external_commonjs_vue_commonjs2_vue_root_Vue_namespaceObject.withDirectives)((0,external_commonjs_vue_commonjs2_vue_root_Vue_namespaceObject.createElementVNode)("span", {
+  }, [$props.topMethod ? ((0,external_commonjs_vue_commonjs2_vue_root_Vue_namespaceObject.openBlock)(), (0,external_commonjs_vue_commonjs2_vue_root_Vue_namespaceObject.createElementBlock)("div", load_morevue_type_template_id_7f021474_hoisted_2, [(0,external_commonjs_vue_commonjs2_vue_root_Vue_namespaceObject.withDirectives)((0,external_commonjs_vue_commonjs2_vue_root_Vue_namespaceObject.createElementVNode)("span", {
     class: "cqc-load-more-text"
-  }, (0,external_commonjs_vue_commonjs2_vue_root_Vue_namespaceObject.toDisplayString)($setup.topText), 513), [[external_commonjs_vue_commonjs2_vue_root_Vue_namespaceObject.vShow, _ctx.topStatus !== 'loading']]), (0,external_commonjs_vue_commonjs2_vue_root_Vue_namespaceObject.withDirectives)((0,external_commonjs_vue_commonjs2_vue_root_Vue_namespaceObject.createElementVNode)("i", load_morevue_type_template_id_8259f5c8_hoisted_3, null, 512), [[external_commonjs_vue_commonjs2_vue_root_Vue_namespaceObject.vShow, _ctx.topStatus === 'loading']])])) : (0,external_commonjs_vue_commonjs2_vue_root_Vue_namespaceObject.createCommentVNode)("", true), (0,external_commonjs_vue_commonjs2_vue_root_Vue_namespaceObject.renderSlot)(_ctx.$slots, "default"), $props.bottomMethod ? ((0,external_commonjs_vue_commonjs2_vue_root_Vue_namespaceObject.openBlock)(), (0,external_commonjs_vue_commonjs2_vue_root_Vue_namespaceObject.createElementBlock)("div", load_morevue_type_template_id_8259f5c8_hoisted_4, [_ctx.bottomDropped ? ((0,external_commonjs_vue_commonjs2_vue_root_Vue_namespaceObject.openBlock)(), (0,external_commonjs_vue_commonjs2_vue_root_Vue_namespaceObject.createElementBlock)("i", _hoisted_5)) : (0,external_commonjs_vue_commonjs2_vue_root_Vue_namespaceObject.createCommentVNode)("", true)])) : (0,external_commonjs_vue_commonjs2_vue_root_Vue_namespaceObject.createCommentVNode)("", true)], 6)], 512);
+  }, (0,external_commonjs_vue_commonjs2_vue_root_Vue_namespaceObject.toDisplayString)($setup.topText), 513), [[external_commonjs_vue_commonjs2_vue_root_Vue_namespaceObject.vShow, _ctx.topStatus !== 'loading']]), (0,external_commonjs_vue_commonjs2_vue_root_Vue_namespaceObject.withDirectives)((0,external_commonjs_vue_commonjs2_vue_root_Vue_namespaceObject.createElementVNode)("i", load_morevue_type_template_id_7f021474_hoisted_3, null, 512), [[external_commonjs_vue_commonjs2_vue_root_Vue_namespaceObject.vShow, _ctx.topStatus === 'loading']])])) : (0,external_commonjs_vue_commonjs2_vue_root_Vue_namespaceObject.createCommentVNode)("", true), (0,external_commonjs_vue_commonjs2_vue_root_Vue_namespaceObject.renderSlot)(_ctx.$slots, "default"), $props.bottomMethod ? ((0,external_commonjs_vue_commonjs2_vue_root_Vue_namespaceObject.openBlock)(), (0,external_commonjs_vue_commonjs2_vue_root_Vue_namespaceObject.createElementBlock)("div", load_morevue_type_template_id_7f021474_hoisted_4, [_ctx.bottomDropped ? ((0,external_commonjs_vue_commonjs2_vue_root_Vue_namespaceObject.openBlock)(), (0,external_commonjs_vue_commonjs2_vue_root_Vue_namespaceObject.createElementBlock)("i", _hoisted_5)) : (0,external_commonjs_vue_commonjs2_vue_root_Vue_namespaceObject.createCommentVNode)("", true)])) : (0,external_commonjs_vue_commonjs2_vue_root_Vue_namespaceObject.createCommentVNode)("", true)], 6)], 512);
 }
-;// CONCATENATED MODULE: ./src/packages/load-more/load-more.vue?vue&type=template&id=8259f5c8
+;// CONCATENATED MODULE: ./src/packages/load-more/load-more.vue?vue&type=template&id=7f021474
 
 ;// CONCATENATED MODULE: ./src/packages/load-more/loadUtils.js
 function getScrollEventTarget(element) {
@@ -2147,6 +2150,7 @@ function throttle(func, delay = 50) {
     const conditionDistance = 50; // 
 
     let startScrollTop = 0;
+    let canmove = false;
     const state = (0,external_commonjs_vue_commonjs2_vue_root_Vue_namespaceObject.reactive)({
       topDropped: false,
       bottomDropped: false,
@@ -2184,7 +2188,8 @@ function throttle(func, delay = 50) {
     };
 
     const touchstart = e => {
-      starty = e.touches[0].clientY;
+      canmove = true;
+      starty = e.touches ? e.touches[0].clientY : e.clientY;
       startScrollTop = getScrollTop(scrollEventTarget);
 
       if (state.topStatus !== 'loading') {
@@ -2199,8 +2204,10 @@ function throttle(func, delay = 50) {
     };
 
     const touchmove = e => {
+      if (!canmove) return;
       if (starty < loadNode.getBoundingClientRect().top || starty > loadNode.getBoundingClientRect().bottom) return;
-      let distance = (e.touches[0].clientY - starty) * radio;
+      let clientY = e.touches ? e.touches[0].clientY : e.clientY;
+      let distance = (clientY - starty) * radio;
       direcition = distance > 0 ? 'down' : 'up';
 
       if (typeof props.topMethod === 'function' && direcition === 'down' && getScrollTop(scrollEventTarget) === 0 && state.topStatus !== 'loading') {
@@ -2213,6 +2220,8 @@ function throttle(func, delay = 50) {
     };
 
     const touchend = e => {
+      canmove = false;
+
       if (direcition === 'down' && props.topMethod && getScrollTop(scrollEventTarget) === 0 && state.translate > 0) {
         state.topDropped = true;
 
@@ -2237,11 +2246,19 @@ function throttle(func, delay = 50) {
         }
       }
     });
+    const eventMap = {
+      touchstart,
+      touchmove,
+      touchend,
+      mousedown: touchstart,
+      mousemove: touchmove,
+      mouseup: touchend
+    };
 
     const bindTouchEvents = () => {
-      loadNode.addEventListener('touchstart', touchstart);
-      loadNode.addEventListener('touchmove', touchmove);
-      loadNode.addEventListener('touchend', touchend);
+      Object.entries(eventMap).forEach(([key, event]) => {
+        loadNode.addEventListener(key, event);
+      });
       scrollEventTarget.addEventListener('scroll', scroll);
     };
 
@@ -2257,10 +2274,11 @@ function throttle(func, delay = 50) {
       });
     });
     (0,external_commonjs_vue_commonjs2_vue_root_Vue_namespaceObject.onBeforeUnmount)(() => {
-      loadNode.removeEventListener('touchstart', touchstart);
-      loadNode.removeEventListener('touchmove', touchmove);
-      loadNode.removeEventListener('touchend', touchend);
+      Object.entries(eventMap).forEach(([key, event]) => {
+        loadNode.removeEventListener(key, event);
+      });
       scrollEventTarget.removeEventListener('scroll', scroll);
+      window.removeEventListener('mouseup', touchend);
     });
     return { ...(0,external_commonjs_vue_commonjs2_vue_root_Vue_namespaceObject.toRefs)(state),
       loadMore,
@@ -2280,7 +2298,7 @@ function throttle(func, delay = 50) {
 
 
 ;
-const load_more_exports_ = /*#__PURE__*/(0,exportHelper/* default */.Z)(load_morevue_type_script_lang_js, [['render',load_morevue_type_template_id_8259f5c8_render]])
+const load_more_exports_ = /*#__PURE__*/(0,exportHelper/* default */.Z)(load_morevue_type_script_lang_js, [['render',load_morevue_type_template_id_7f021474_render]])
 
 /* harmony default export */ var load_more = (load_more_exports_);
 ;// CONCATENATED MODULE: ./src/packages/load-more/index.js
@@ -2422,33 +2440,33 @@ function infinite_scroll_throttle(func, delay = 50) {
 });
 ;// CONCATENATED MODULE: ./src/packages/infinite-scroll/index.js
 
-;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[1]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[3]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./src/packages/range/range.vue?vue&type=template&id=a1e4d8a4
+;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[1]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[3]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./src/packages/range/range.vue?vue&type=template&id=b99b92d6
 
-const rangevue_type_template_id_a1e4d8a4_hoisted_1 = {
+const rangevue_type_template_id_b99b92d6_hoisted_1 = {
   class: "cqc-range-text"
 };
-const rangevue_type_template_id_a1e4d8a4_hoisted_2 = {
+const rangevue_type_template_id_b99b92d6_hoisted_2 = {
   key: 1
 };
-const rangevue_type_template_id_a1e4d8a4_hoisted_3 = {
+const rangevue_type_template_id_b99b92d6_hoisted_3 = {
   class: "cqc-range-wrapper",
   ref: "range"
 };
-const rangevue_type_template_id_a1e4d8a4_hoisted_4 = {
+const rangevue_type_template_id_b99b92d6_hoisted_4 = {
   class: "cqc-range-text"
 };
-const rangevue_type_template_id_a1e4d8a4_hoisted_5 = {
+const rangevue_type_template_id_b99b92d6_hoisted_5 = {
   key: 1
 };
-function rangevue_type_template_id_a1e4d8a4_render(_ctx, _cache, $props, $setup, $data, $options) {
+function rangevue_type_template_id_b99b92d6_render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,external_commonjs_vue_commonjs2_vue_root_Vue_namespaceObject.openBlock)(), (0,external_commonjs_vue_commonjs2_vue_root_Vue_namespaceObject.createElementBlock)("div", {
     class: "cqc-range",
     style: (0,external_commonjs_vue_commonjs2_vue_root_Vue_namespaceObject.normalizeStyle)({
       height: $props.thumbWidth + 'px'
     })
-  }, [(0,external_commonjs_vue_commonjs2_vue_root_Vue_namespaceObject.createElementVNode)("div", rangevue_type_template_id_a1e4d8a4_hoisted_1, [_ctx.$slots.startText ? (0,external_commonjs_vue_commonjs2_vue_root_Vue_namespaceObject.renderSlot)(_ctx.$slots, "startText", {
+  }, [(0,external_commonjs_vue_commonjs2_vue_root_Vue_namespaceObject.createElementVNode)("div", rangevue_type_template_id_b99b92d6_hoisted_1, [_ctx.$slots.startText ? (0,external_commonjs_vue_commonjs2_vue_root_Vue_namespaceObject.renderSlot)(_ctx.$slots, "startText", {
     key: 0
-  }) : ((0,external_commonjs_vue_commonjs2_vue_root_Vue_namespaceObject.openBlock)(), (0,external_commonjs_vue_commonjs2_vue_root_Vue_namespaceObject.createElementBlock)("span", rangevue_type_template_id_a1e4d8a4_hoisted_2, "0"))]), (0,external_commonjs_vue_commonjs2_vue_root_Vue_namespaceObject.createElementVNode)("div", rangevue_type_template_id_a1e4d8a4_hoisted_3, [(0,external_commonjs_vue_commonjs2_vue_root_Vue_namespaceObject.createElementVNode)("div", {
+  }) : ((0,external_commonjs_vue_commonjs2_vue_root_Vue_namespaceObject.openBlock)(), (0,external_commonjs_vue_commonjs2_vue_root_Vue_namespaceObject.createElementBlock)("span", rangevue_type_template_id_b99b92d6_hoisted_2, "0"))]), (0,external_commonjs_vue_commonjs2_vue_root_Vue_namespaceObject.createElementVNode)("div", rangevue_type_template_id_b99b92d6_hoisted_3, [(0,external_commonjs_vue_commonjs2_vue_root_Vue_namespaceObject.createElementVNode)("div", {
     class: "cqc-range-way",
     style: (0,external_commonjs_vue_commonjs2_vue_root_Vue_namespaceObject.normalizeStyle)($setup.wayStyle)
   }, null, 4), (0,external_commonjs_vue_commonjs2_vue_root_Vue_namespaceObject.createElementVNode)("div", {
@@ -2459,11 +2477,11 @@ function rangevue_type_template_id_a1e4d8a4_render(_ctx, _cache, $props, $setup,
     style: (0,external_commonjs_vue_commonjs2_vue_root_Vue_namespaceObject.normalizeStyle)({ ...$setup.thumbStyle,
       transform: $setup.transform
     })
-  }, null, 4)], 512), (0,external_commonjs_vue_commonjs2_vue_root_Vue_namespaceObject.createElementVNode)("div", rangevue_type_template_id_a1e4d8a4_hoisted_4, [_ctx.$slots.endText ? (0,external_commonjs_vue_commonjs2_vue_root_Vue_namespaceObject.renderSlot)(_ctx.$slots, "endText", {
+  }, null, 4)], 512), (0,external_commonjs_vue_commonjs2_vue_root_Vue_namespaceObject.createElementVNode)("div", rangevue_type_template_id_b99b92d6_hoisted_4, [_ctx.$slots.endText ? (0,external_commonjs_vue_commonjs2_vue_root_Vue_namespaceObject.renderSlot)(_ctx.$slots, "endText", {
     key: 0
-  }) : ((0,external_commonjs_vue_commonjs2_vue_root_Vue_namespaceObject.openBlock)(), (0,external_commonjs_vue_commonjs2_vue_root_Vue_namespaceObject.createElementBlock)("span", rangevue_type_template_id_a1e4d8a4_hoisted_5, (0,external_commonjs_vue_commonjs2_vue_root_Vue_namespaceObject.toDisplayString)($setup.percentage) + "\\100", 1))])], 4);
+  }) : ((0,external_commonjs_vue_commonjs2_vue_root_Vue_namespaceObject.openBlock)(), (0,external_commonjs_vue_commonjs2_vue_root_Vue_namespaceObject.createElementBlock)("span", rangevue_type_template_id_b99b92d6_hoisted_5, (0,external_commonjs_vue_commonjs2_vue_root_Vue_namespaceObject.toDisplayString)($setup.percentage) + "\\100", 1))])], 4);
 }
-;// CONCATENATED MODULE: ./src/packages/range/range.vue?vue&type=template&id=a1e4d8a4
+;// CONCATENATED MODULE: ./src/packages/range/range.vue?vue&type=template&id=b99b92d6
 
 ;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[1]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./src/packages/range/range.vue?vue&type=script&lang=js
 
@@ -2496,13 +2514,15 @@ function rangevue_type_template_id_a1e4d8a4_render(_ctx, _cache, $props, $setup,
     }
   },
 
-  setup(props) {
+  setup(props, {
+    emit
+  }) {
     let range = (0,external_commonjs_vue_commonjs2_vue_root_Vue_namespaceObject.ref)(null);
     let rangeWidth = 1;
     let touchStartx = 0;
     let oleOffsetX = 0;
     let offsetX = (0,external_commonjs_vue_commonjs2_vue_root_Vue_namespaceObject.ref)(0);
-    let canMove = true;
+    let canMove = false;
     const transform = (0,external_commonjs_vue_commonjs2_vue_root_Vue_namespaceObject.computed)(() => {
       return `translate3D(${offsetX.value}px, -50%, 0)`;
     });
@@ -2528,12 +2548,13 @@ function rangevue_type_template_id_a1e4d8a4_render(_ctx, _cache, $props, $setup,
       };
     });
     const percentage = (0,external_commonjs_vue_commonjs2_vue_root_Vue_namespaceObject.computed)(() => {
-      return parseInt(offsetX.value / rangeWidth * 100);
+      return Math.round(offsetX.value / rangeWidth * 100);
     });
 
     const touchstart = e => {
-      touchStartx = e.touches[0].clientX;
-      let x = e.touches[0].clientX - range.getBoundingClientRect().left;
+      let clientX = e.touches ? e.touches[0].clientX : e.clientX;
+      touchStartx = clientX;
+      let x = clientX - range.getBoundingClientRect().left;
       x = x - props.thumbWidth / 2;
       offsetX.value = x > rangeWidth ? rangeWidth : x < 0 ? 0 : x;
       oleOffsetX = offsetX.value;
@@ -2542,26 +2563,51 @@ function rangevue_type_template_id_a1e4d8a4_render(_ctx, _cache, $props, $setup,
 
     const touchmove = e => {
       if (!canMove) return;
-      let newOffsetX = e.touches[0].clientX - touchStartx + oleOffsetX;
+      let clientX = e.touches ? e.touches[0].clientX : e.clientX;
+      let newOffsetX = clientX - touchStartx + oleOffsetX;
       offsetX.value = newOffsetX > rangeWidth ? rangeWidth : newOffsetX < 0 ? 0 : newOffsetX;
+      emit('change', Math.round(offsetX.value / rangeWidth * 100), offsetX.value / rangeWidth * 100);
     };
 
     const touchend = e => {
       canMove = false;
     };
 
+    const events = {
+      touchstart,
+      touchmove,
+      touchend,
+      mousedown: touchstart,
+      mousemove: touchmove,
+      mouseup: touchend
+    };
+
     const touchEvents = () => {
-      range.addEventListener('touchstart', touchstart);
-      range.addEventListener('touchmove', touchmove);
+      Object.entries(events).forEach(([key, fn]) => {
+        range.addEventListener(key, fn);
+      });
       window.addEventListener('touchend', touchend);
     };
+
+    (0,external_commonjs_vue_commonjs2_vue_root_Vue_namespaceObject.watch)(() => props.current, val => {
+      offsetX.value = Math.round(val / 100 * rangeWidth);
+    }, {
+      immediate: true
+    });
 
     const init = () => {
       range = range.value;
       rangeWidth = range.clientWidth - props.thumbWidth;
+      offsetX.value = Math.round(props.current / 100 * rangeWidth);
       touchEvents();
     };
 
+    (0,external_commonjs_vue_commonjs2_vue_root_Vue_namespaceObject.onBeforeUnmount)(() => {
+      Object.entries(events).forEach(([key, fn]) => {
+        range.removeEventListener(key, fn);
+      });
+      window.removeEventListener('touchend', touchend);
+    });
     (0,external_commonjs_vue_commonjs2_vue_root_Vue_namespaceObject.onMounted)(() => {
       (0,external_commonjs_vue_commonjs2_vue_root_Vue_namespaceObject.nextTick)(() => {
         init();
@@ -2587,7 +2633,7 @@ function rangevue_type_template_id_a1e4d8a4_render(_ctx, _cache, $props, $setup,
 
 
 ;
-const range_exports_ = /*#__PURE__*/(0,exportHelper/* default */.Z)(rangevue_type_script_lang_js, [['render',rangevue_type_template_id_a1e4d8a4_render]])
+const range_exports_ = /*#__PURE__*/(0,exportHelper/* default */.Z)(rangevue_type_script_lang_js, [['render',rangevue_type_template_id_b99b92d6_render]])
 
 /* harmony default export */ var range = (range_exports_);
 ;// CONCATENATED MODULE: ./src/packages/range/index.js
@@ -3336,7 +3382,7 @@ slide.install = app => app.component(slide.name, slide);
 ;// CONCATENATED MODULE: ./src/packages/sign-board/drawEvent.js
 
 function drawEvents(props, canvasRef, width, height) {
-  let flag = true;
+  let canMove = false;
   let cavClientLeft, cavClientTop, canvas, ctx;
   const {
     lineWidth,
@@ -3364,7 +3410,6 @@ function drawEvents(props, canvasRef, width, height) {
   }
 
   function draw(ctx, x, y) {
-    if (!flag) return false;
     ctx.lineTo(x, y);
     ctx.stroke();
   }
@@ -3373,18 +3418,17 @@ function drawEvents(props, canvasRef, width, height) {
     doubleLine && ctx.save();
     ctx.beginPath();
     ctx.moveTo(x, y);
-    flag = true;
   }
 
   function drawEnd(ctx) {
+    canMove = false;
+
     if (doubleLine) {
       ctx.globalCompositeOperation = 'destination-out';
       ctx.lineWidth = parseInt(lineWidth / 3);
       ctx.stroke();
       ctx.restore();
     }
-
-    flag = false;
   }
 
   function clear() {
@@ -3399,35 +3443,51 @@ function drawEvents(props, canvasRef, width, height) {
     return canvasRef.value.toDataURL(miniType);
   }
 
-  function onmousedown(e) {
+  const touchstart = e => {
+    canMove = true;
     cavClientLeft = canvas.getBoundingClientRect().left;
     cavClientTop = canvas.getBoundingClientRect().top;
     let clientX = e.touches ? e.touches[0].clientX : e.clientX;
     let clientY = e.touches ? e.touches[0].clientY : e.clientY;
     drawStart(ctx, clientX - cavClientLeft, clientY - cavClientTop);
+  };
 
-    canvas.onmousemove = canvas.ontouchmove = e => {
-      if (!flag) return;
-      let clientX = e.touches ? e.touches[0].clientX : e.clientX;
-      let clientY = e.touches ? e.touches[0].clientY : e.clientY;
-      draw(ctx, clientX - cavClientLeft, clientY - cavClientTop);
-    };
+  const touchmove = e => {
+    if (!canMove) return;
+    let clientX = e.touches ? e.touches[0].clientX : e.clientX;
+    let clientY = e.touches ? e.touches[0].clientY : e.clientY;
+    draw(ctx, clientX - cavClientLeft, clientY - cavClientTop);
+  };
 
-    window.addEventListener('mouseup', () => {
-      drawEnd(ctx);
-    });
-    window.addEventListener('touchend', () => {
-      drawEnd(ctx);
-    });
-  }
+  const touchend = () => {
+    drawEnd(ctx);
+  };
+
+  const eventMap = {
+    touchstart,
+    touchmove,
+    touchend,
+    mousedown: touchstart,
+    mousemove: touchmove,
+    mouseup: touchend
+  };
 
   function init() {
     canvas = canvasRef.value;
     ctx = canvas.getContext('2d');
     setCanvasStyle(ctx);
-    canvas.onmousedown = canvas.ontouchstart = onmousedown;
+    Object.entries(eventMap).forEach(([key, event]) => {
+      canvas.addEventListener(key, event);
+    });
+    window.addEventListener("mouseup", touchend);
   }
 
+  (0,external_commonjs_vue_commonjs2_vue_root_Vue_namespaceObject.onBeforeUnmount)(() => {
+    Object.entries(eventMap).forEach(([key, event]) => {
+      canvas.removeEventListener(key, event);
+    });
+    window.removeEventListener("mouseup", touchend);
+  });
   (0,external_commonjs_vue_commonjs2_vue_root_Vue_namespaceObject.onMounted)(() => {
     (0,external_commonjs_vue_commonjs2_vue_root_Vue_namespaceObject.nextTick)(() => {
       setTimeout(() => {

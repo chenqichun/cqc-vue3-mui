@@ -1,8 +1,12 @@
 <template>
-  <cqc-sign-board 
+  <div>
+    <goback />
+    <cqc-sign-board 
   @getData="getData"
-  t
+  :lineWidth="10"
+  strokeStyle="red"
   ></cqc-sign-board>
+  </div>
 </template>
 
 <script>
